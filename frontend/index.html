@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Sandboxeroids 🚀</title>
+  <link rel="icon" href="/public/icons/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div id="hud-top">
+    <div class="brand"><img src="/public/icons/logo.svg" alt="" class="brand-logo" /><b>SANDBOXEROIDS</b> <span class="dim">— blow up the cloud</span></div>
+    <div class="stats">
+      <span>Score: <b id="score">0</b></span>
+      <span>Wave: <b id="wave">1</b></span>
+      <span>Lives: <b id="lives">6</b></span>
+      <span>Mode: <b id="mode">…</b></span>
+    </div>
+  </div>
+
+  <div id="layout">
+    <aside id="left-panel">
+      <section class="panel">
+        <h3>📡 Telemetry</h3>
+        <div class="metric">
+          <label>Avg sandbox create latency</label>
+          <div class="big" id="avg-latency">— ms</div>
+        </div>
+        <div class="metric">
+          <label>Asteroids alive</label>
+          <div class="big" id="alive-count">0</div>
+        </div>
+        <div class="row" style="margin-top:6px">
+          <button id="spawn-btn" title="Create a new sandbox (random disk + tier)">➕ Spawn sandbox</button>
+          <button id="pool-toggle" title="Toggle warm pool — when paused no new asteroids spawn automatically">⏸ Pause warm pool</button>
+        </div>
+      </section>
+
+      <section class="panel grow">
+        <h3>📜 Logs</h3>
+        <div id="logs" class="logs"></div>
+      </section>
+    </aside>
+
+    <main id="game-area">
+      <canvas id="game"></canvas>
+      <div id="overlay" class="hidden">
+        <div class="overlay-box">
+          <h1 id="overlay-title">PRESS SPACE TO START</h1>
+          <p id="overlay-sub">WASD / Arrow keys to fly · SPACE to shoot · Click asteroid for inspector · Shift = boost</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer id="bottom-panel">
+    <div class="bp-header">
+      <h3>🪐 Live sandboxes <span class="dim" style="font-weight:normal;font-size:10px">— right-click for actions</span></h3>
+      <div class="legend">
+        <span class="pill running">Running</span>
+        <span class="pill stopping">Stopping</span>
+        <span class="pill stopped">Stopped</span>
+        <span class="pill deleting">Deleting</span>
+      </div>
+      <button id="sync-btn" title="Re-sync from Azure">↻ Sync</button>
+    </div>
+    <div id="sbx-list"></div>
+  </footer>
+
+  <div id="modal-root" class="modal-root hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal">
+      <header class="modal-header">
+        <span id="modal-title">…</span>
+        <button id="modal-close" title="Close (Esc)">✕</button>
+      </header>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/static/game.js"></script>
+</body>
+</html>

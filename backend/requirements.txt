@@ -1,0 +1,7 @@
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+azure-identity>=1.15.0
+azure-mgmt-resource>=23.0.0
+azure-mgmt-authorization>=4.0.0
+azure-containerapps-sandbox @ https://github.com/microsoft/azure-container-apps/releases/download/python-sdk-v0.1.0b1-early-access/azure_containerapps_sandbox-0.1.0b1-py3-none-any.whl
+python-dotenv>=1.0.0
