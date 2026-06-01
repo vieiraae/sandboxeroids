@@ -536,6 +536,9 @@ class SandboxManager:
                 if not real_id:
                     continue
                 labels = getattr(s, "labels", {}) or {}
+                # Only show sandboxes that belong to this game.
+                if labels.get("game") != "sandboxeroids":
+                    continue
                 label_name = labels.get("name")
                 svc_name = getattr(s, "name", None)
                 # skip if already tracked by real id, by stored name, or by labels.name
