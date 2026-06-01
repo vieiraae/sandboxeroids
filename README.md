@@ -102,6 +102,15 @@ uvicorn main:app --reload --port 8000
 Then open <http://localhost:8000>. The backend serves the static frontend at
 `/`, so there's nothing else to start.
 
+## Run inside a sandbox (inception)
+
+Prefer not to run anything locally? The [`create-and-deploy.ipynb`](create-and-deploy.ipynb)
+notebook walks through an **inception** pattern: it creates a sandbox group with a
+system-assigned managed identity, grants it the required roles, boots an
+orchestrator sandbox, and deploys this app *inside* that sandbox — authenticating
+with the managed identity, **no secrets**. Click **Run All** to provision
+everything and get a public URL to the running game.
+
 ## Layout
 
 ```
